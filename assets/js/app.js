@@ -350,35 +350,21 @@
         : '<svg class="svg-ic" width="38" height="38" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>'}
         </div>
         <h3 style="font-size: 1.6rem; margin-bottom: 8px;">Evaluasi Selesai!</h3>
-        <p style="font-size: 1.1rem; color: var(--rose-accent); margin-bottom: 20px;">
+        <p style="font-size: 1.15rem; color: var(--rose-accent); margin-bottom: 16px;">
           Skor Anda: <strong>${userScore} / ${quizData.length} (${percentage}%)</strong>
         </p>
-        <p style="max-width: 520px; margin: 0 auto 24px; font-size: 0.95rem;">
+        <p style="max-width: 520px; margin: 0 auto 28px; font-size: 0.95rem; line-height: 1.6;">
           ${passed
-        ? 'Selamat! Anda telah memahami konsep kritis Sistem Informasi Tuberkulosis (SITB) dan prinsip tata kelola data kesehatan nasional.'
-        : 'Terima kasih telah mengikuti evaluasi. Silakan pelajari kembali modul edukasi untuk memperdalam pemahaman.'}
+        ? 'Luar biasa! Anda telah memahami konsep kritis Sistem Informasi Tuberkulosis (SITB) dan prinsip tata kelola data kesehatan nasional.'
+        : 'Terima kasih telah mengikuti evaluasi. Silakan pelajari kembali materi modul edukasi untuk memperdalam pemahaman.'}
         </p>
 
-        <div style="max-width: 440px; margin: 0 auto 28px; text-align: left;">
-          <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 8px;">
-            Nama Lengkap Penerima Sertifikat:
-          </label>
-          <input type="text" id="cert-user-name" placeholder="Masukkan nama lengkap Anda..." 
-            style="width: 100%; padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-glass); background: var(--bg-surface); color: var(--text-main); font-size: 1rem; outline: none;">
-        </div>
-
-        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-          <button class="btn-primary" id="btn-generate-cert">
-            <svg class="svg-ic" width="18" height="18" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            <span>Unduh Sertifikat Digital (.PNG)</span>
-          </button>
-          <button class="btn-secondary" id="btn-restart-quiz">
+        <div style="display: flex; justify-content: center;">
+          <button class="btn-primary" id="btn-restart-quiz" style="padding: 12px 28px; display: inline-flex; align-items: center; gap: 8px;">
             <svg class="svg-ic" width="18" height="18" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
             <span>Ulangi Kuis</span>
           </button>
         </div>
-
-        <canvas id="cert-canvas" width="1200" height="850" style="display:none;"></canvas>
       </div>
     `;
 
@@ -387,119 +373,6 @@
       userScore = 0;
       renderQuizQuestion();
     });
-
-    document.getElementById('btn-generate-cert').addEventListener('click', () => {
-      const nameInput = document.getElementById('cert-user-name');
-      const name = nameInput.value.trim() || 'Peserta Literasi SITB';
-      generateCertificate(name, percentage);
-    });
-  }
-
-  function generateCertificate(userName, score) {
-    const canvas = document.getElementById('cert-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    // Canvas Dimensions
-    const w = canvas.width;
-    const h = canvas.height;
-
-    // Background Gradient (Deep Burgundy Luxury Certificate)
-    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
-    bgGrad.addColorStop(0, '#1E060D');
-    bgGrad.addColorStop(0.5, '#380E1B');
-    bgGrad.addColorStop(1, '#140409');
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, w, h);
-
-    // Ornate Border
-    ctx.strokeStyle = '#DDA15E';
-    ctx.lineWidth = 10;
-    ctx.strokeRect(30, 30, w - 60, h - 60);
-
-    ctx.strokeStyle = 'rgba(201, 59, 93, 0.4)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(45, 45, w - 90, h - 90);
-
-    // Watermark Emblem
-    ctx.fillStyle = 'rgba(221, 161, 94, 0.04)';
-    ctx.beginPath();
-    ctx.arc(w / 2, h / 2, 220, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Header Title
-    ctx.fillStyle = '#DDA15E';
-    ctx.font = 'bold 28px "Plus Jakarta Sans", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('KEMENTERIAN KESEHATAN RI & TIM EDUKASI MAHASISWA', w / 2, 120);
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = '800 52px "Outfit", sans-serif';
-    ctx.fillText('SERTIFIKAT LITERASI DIGITAL', w / 2, 185);
-
-    ctx.fillStyle = '#E07A5F';
-    ctx.font = '600 24px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Sistem Informasi Tuberkulosis (SITB Insight)', w / 2, 230);
-
-    // Awarded To
-    ctx.fillStyle = '#BFA5AD';
-    ctx.font = 'italic 22px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Dengan bangga diberikan kepada:', w / 2, 310);
-
-    // Recipient Name
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 46px "Outfit", sans-serif';
-    ctx.fillText(userName, w / 2, 380);
-
-    // Underline
-    ctx.strokeStyle = '#DDA15E';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(w / 2 - 250, 405);
-    ctx.lineTo(w / 2 + 250, 405);
-    ctx.stroke();
-
-    // Body Text
-    ctx.fillStyle = '#F7EEF1';
-    ctx.font = '20px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Telah berhasil menyelesaikan Uji Kompetensi Literasi SIK Tuberkulosis', w / 2, 460);
-    ctx.fillText(`dengan predikat kelulusan memuaskan (Skor Pencapaian: ${score}%)`, w / 2, 495);
-    ctx.fillText('dan dinobatkan sebagai Duta Edukasi Penanggulangan Tuberkulosis Terpadu.', w / 2, 530);
-
-    // Metadata Footer
-    const today = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-    ctx.fillStyle = '#BFA5AD';
-    ctx.font = '18px "Plus Jakarta Sans", sans-serif';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Tanggal Terbit: ${today}`, 120, 680);
-    ctx.fillText('Verifikasi: SITB-EDU-AUTH-2026', 120, 710);
-
-    // Signature Area
-    ctx.textAlign = 'right';
-    ctx.fillStyle = '#DDA15E';
-    ctx.font = 'bold 20px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Tim Peneliti & Pengembang Mahasiswa', w - 120, 660);
-
-    ctx.fillStyle = '#BFA5AD';
-    ctx.font = '16px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Afifah Zuhra, dkk. (9 Mahasiswa)', w - 120, 690);
-    ctx.fillText('Fakultas Kesehatan Masyarakat', w - 120, 715);
-
-    // Golden Seal
-    ctx.beginPath();
-    ctx.arc(w / 2, 690, 45, 0, Math.PI * 2);
-    ctx.fillStyle = '#DDA15E';
-    ctx.fill();
-    ctx.fillStyle = '#1E060D';
-    ctx.font = 'bold 16px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('VERIFIED', w / 2, 695);
-
-    // Trigger Download
-    const link = document.createElement('a');
-    link.download = `Sertifikat_SITB_${userName.replace(/\s+/g, '_')}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
   }
 
   /**
