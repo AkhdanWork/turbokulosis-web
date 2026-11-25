@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SITB Edu - Literasi SIK Tuberkulosis
+   SITB Insight - Literasi SIK Tuberkulosis
    Theme: Burgundy Medical-Tech & Clinical HUD
    ========================================================================== */
 
@@ -149,18 +149,18 @@ button {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 12px;
 }
 
 /* Content Section */
 .content-section {
-  padding: 70px 0;
+  padding: 20px 0;
   width: 100%;
   position: relative;
 }
 
 .content-section.quiz-section {
-  padding: 70px 0 100px;
+  padding: 20px 0 20px;
 }
 
 /* Glassmorphism Card Style */
@@ -1630,11 +1630,11 @@ footer.site-footer {
   }
 
   .content-section {
-    padding: 38px 0 !important;
+    padding: 12px 0 !important;
   }
 
   .content-section.quiz-section {
-    padding: 38px 0 60px !important;
+    padding: 12px 0 60px !important;
   }
 
   /* ── Navbar Mobile ── */
@@ -1689,11 +1689,11 @@ footer.site-footer {
 
   /* ── Section Padding ── */
   .hero-section {
-    padding: 36px 0 24px;
+    padding: 18px 0 24px;
   }
 
   .three-section {
-    padding: 36px 0;
+    padding: 18px 0;
   }
 
   /* ── Hero ── */

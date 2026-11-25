@@ -1,5 +1,5 @@
 /**
- * SITB Edu - Three.js 3D Medical Visualizer
+ * SITB Insight - Three.js 3D Medical Visualizer
  * Dual Mode: Mycobacterium tuberculosis (Bacilli) & Lungs Pathology (Infection Nodules)
  */
 
@@ -116,7 +116,7 @@
     // Capsule helper: cylinder + 2 spheres
     function createBacillus(radius, length, colorHex) {
       const bacillus = new THREE.Group();
-      
+
       const mat = new THREE.MeshPhysicalMaterial({
         color: colorHex,
         roughness: 0.25,

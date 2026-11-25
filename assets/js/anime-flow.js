@@ -1,5 +1,5 @@
 /**
- * SITB Edu - Anime.js Interactive Flowchart
+ * SITB Insight - Anime.js Interactive Flowchart
  * Visualizing real-time healthcare data pipelines in SITB Ecosystem
  */
 

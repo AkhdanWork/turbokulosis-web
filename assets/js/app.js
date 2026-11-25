@@ -1,5 +1,5 @@
 /**
- * SITB Edu - Main Application Controller
+ * SITB Insight - Main Application Controller
  * Handles Theme, Team Modal, Comparator, Lightbox, Quiz & Certificate Generation
  */
 
@@ -118,7 +118,7 @@
   function updateThemeIcon(theme) {
     const iconEl = document.getElementById('theme-icon');
     if (iconEl) {
-      iconEl.innerHTML = theme === 'light' 
+      iconEl.innerHTML = theme === 'light'
         ? `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>`
         : `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>`;
     }
@@ -345,18 +345,18 @@
     container.innerHTML = `
       <div class="certificate-card">
         <div class="cert-stamp">
-          ${passed 
-            ? '<svg class="svg-ic" width="38" height="38" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>' 
-            : '<svg class="svg-ic" width="38" height="38" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>'}
+          ${passed
+        ? '<svg class="svg-ic" width="38" height="38" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>'
+        : '<svg class="svg-ic" width="38" height="38" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>'}
         </div>
         <h3 style="font-size: 1.6rem; margin-bottom: 8px;">Evaluasi Selesai!</h3>
         <p style="font-size: 1.1rem; color: var(--rose-accent); margin-bottom: 20px;">
           Skor Anda: <strong>${userScore} / ${quizData.length} (${percentage}%)</strong>
         </p>
         <p style="max-width: 520px; margin: 0 auto 24px; font-size: 0.95rem;">
-          ${passed 
-            ? 'Selamat! Anda telah memahami konsep kritis Sistem Informasi Tuberkulosis (SITB) dan prinsip tata kelola data kesehatan nasional.' 
-            : 'Terima kasih telah mengikuti evaluasi. Silakan pelajari kembali modul edukasi untuk memperdalam pemahaman.'}
+          ${passed
+        ? 'Selamat! Anda telah memahami konsep kritis Sistem Informasi Tuberkulosis (SITB) dan prinsip tata kelola data kesehatan nasional.'
+        : 'Terima kasih telah mengikuti evaluasi. Silakan pelajari kembali modul edukasi untuk memperdalam pemahaman.'}
         </p>
 
         <div style="max-width: 440px; margin: 0 auto 28px; text-align: left;">
@@ -439,7 +439,7 @@
 
     ctx.fillStyle = '#E07A5F';
     ctx.font = '600 24px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Sistem Informasi Tuberkulosis (SITB Edu)', w / 2, 230);
+    ctx.fillText('Sistem Informasi Tuberkulosis (SITB Insight)', w / 2, 230);
 
     // Awarded To
     ctx.fillStyle = '#BFA5AD';
