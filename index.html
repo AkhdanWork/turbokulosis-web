@@ -29,17 +29,12 @@
         </div>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav-links" id="main-nav">
         <a href="#hero" class="nav-item">Beranda</a>
         <a href="#three-viewer" class="nav-item">Lab 3D</a>
-        <a href="#konsep" class="nav-item">Konsep SIK</a>
-        <a href="#fungsi" class="nav-item">Fungsi SITB</a>
-        <a href="#sumber-data" class="nav-item">Sumber Data</a>
+        <a href="#konsep" class="nav-item">Konsep</a>
         <a href="#alur-data" class="nav-item">Alur Data</a>
-        <a href="#analisis" class="nav-item">Analisis</a>
-        <a href="#komparator" class="nav-item">TB-SO vs TB-RO</a>
-        <a href="#galeri-medis" class="nav-item">Galeri Klinis</a>
-        <a href="#tim-peneliti" class="nav-item">Tim Peneliti</a>
+        <a href="#komparator" class="nav-item">TB-SO/RO</a>
         <a href="#kuis" class="nav-item">Uji Kompetensi</a>
       </nav>
 
@@ -51,6 +46,18 @@
               <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
             </svg>
           </span>
+        </button>
+        <!-- Hamburger Toggle (Mobile Only) -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <svg class="svg-ic icon-burger" width="22" height="22" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="svg-ic icon-close" width="22" height="22" viewBox="0 0 24 24" style="display:none;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
@@ -156,7 +163,11 @@
   <section class="three-section" id="three-viewer">
     <div class="container">
       <div class="section-header">
-        <span class="section-pill">SIMULASI KLINIS 3D</span>
+        <div class="section-label-row">
+          <span class="section-num">LAB</span>
+          <span class="section-label-sep">|</span>
+          <span class="section-label-text">SIMULASI KLINIS 3D</span>
+        </div>
         <h2 class="section-title">Laboratorium Anatomi &amp; Mikrobiologi 3D</h2>
         <p class="section-subtitle">
           Interaksi langsung secara 360° dengan struktur bakteri basil tahan asam <em>Mycobacterium tuberculosis</em> dan representasi volumetrik paru-paru terinfeksi lesi kavitas.
@@ -240,7 +251,11 @@
   <!-- Bagian 01: Konsep Dasar SIK & SITB (Bersih Tanpa Paragraf Ganda) -->
   <section class="container" style="padding: 70px 0;" id="konsep">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 01 - LANDASAN ILMIAH</span>
+      <div class="section-label-row">
+        <span class="section-num">01</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">LANDASAN ILMIAH</span>
+      </div>
       <h2 class="section-title">Apa Itu SIK dan SITB?</h2>
       <p class="section-subtitle">
         Fondasi arsitektur data kesehatan yang menghubungkan fasilitas pelayanan kesehatan di seluruh nusantara untuk pengambilan keputusan klinis dan kebijakan terpadu.
@@ -292,7 +307,11 @@
   <!-- Bagian 02: Tiga Fungsi Utama SITB (Mandiri) -->
   <section class="container" style="padding: 70px 0;" id="fungsi">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 02 - FUNGSI UTAMA SITB</span>
+      <div class="section-label-row">
+        <span class="section-num">02</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">FUNGSI UTAMA SITB</span>
+      </div>
       <h2 class="section-title">Tiga Fungsi Utama SITB</h2>
       <p class="section-subtitle">
         Sistem Informasi Tuberkulosis menjalankan tiga fungsi sentral dalam rantai deteksi, pelacakan kontak berisiko, dan penyembuhan pasien secara berkelanjutan.
@@ -347,14 +366,18 @@
   <!-- Bagian 03: Sumber Data SITB Terpadu (Mandiri) -->
   <section class="container" style="padding: 70px 0;" id="sumber-data">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 03 - SUMBER DATA TERPADU</span>
+      <div class="section-label-row">
+        <span class="section-num">03</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">SUMBER DATA TERPADU</span>
+      </div>
       <h2 class="section-title">Sumber Data SITB Nasional</h2>
       <p class="section-subtitle">
         Semua sumber data fasilitas pelayanan kesehatan terhubung dan mengarah ke satu pusat data TB nasional melalui Public-Private Mix.
       </p>
     </div>
 
-    <div class="grid-3" style="grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <div class="sources-grid">
       <!-- Sumber 1 -->
       <div class="glass-panel feature-card" style="padding: 24px;">
         <div class="card-icon" style="width: 50px; height: 50px; margin-bottom: 16px;">
@@ -404,7 +427,11 @@
   <!-- Bagian 04: Bagaimana Data TB Diolah? (6 Kartu Tahapan Rapi) -->
   <section class="container" style="padding: 70px 0;" id="alur-data">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 04 - ALUR KERJA SISTEM</span>
+      <div class="section-label-row">
+        <span class="section-num">04</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">ALUR KERJA SISTEM</span>
+      </div>
       <h2 class="section-title">Bagaimana Data TB Diolah?</h2>
       <p class="section-subtitle">
         Enam tahapan terstruktur mengubah data mentah fasilitas kesehatan menjadi dasar keputusan strategis Kementerian Kesehatan.
@@ -622,7 +649,11 @@
   <!-- Bagian 05: Taksonomi Analisis Data TB -->
   <section class="container" style="padding: 70px 0;" id="analisis">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 05 - INTELEJENSI DATA</span>
+      <div class="section-label-row">
+        <span class="section-num">05</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">INTELEJENSI DATA</span>
+      </div>
       <h2 class="section-title">Jenis Analisis Data Tuberkulosis</h2>
       <p class="section-subtitle">
         Empat tingkatan analisis yang mengubah kumpulan data mentah menjadi wawasan mendalam dan tindakan pencegahan yang terarah.
@@ -683,7 +714,11 @@
   <!-- Bagian 06 & 07: Aplikasi & Manfaat (Komparator Klinis TB-SO vs TB-RO) -->
   <section class="container" style="padding: 70px 0;" id="komparator">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 06 &amp; 07 - APLIKASI, MANFAAT &amp; FARMAKOLOGI</span>
+      <div class="section-label-row">
+        <span class="section-num">06</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">APLIKASI &amp; FARMAKOLOGI</span>
+      </div>
       <h2 class="section-title">Aplikasi, Manfaat &amp; Komparator Klinis</h2>
       <p class="section-subtitle">
         SITB dipakai untuk <strong>surveilans penyakit</strong> (memantau tren dan mendeteksi lonjakan kasus lebih dini), <strong>perencanaan layanan</strong> (menentukan kebutuhan obat, alat tes, dan petugas), <strong>memantau pengobatan TB-SO dan TB-RO</strong>, serta <strong>melibatkan faskes swasta</strong> agar kasus yang ditangani mereka tidak terlewat. Salah satu aplikasi penting SITB adalah <strong>memperkirakan risiko</strong>, yaitu mengenali wilayah atau kelompok yang rentan terhadap TB dari pola data.
@@ -691,7 +726,7 @@
     </div>
 
     <!-- 4 Manfaat Utama Grid -->
-    <div class="grid-3" style="grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px;">
+    <div class="sources-grid" style="margin-bottom: 36px;">
       <div class="glass-panel feature-card" style="padding: 22px;">
         <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--rose-accent);">1. Kualitas Keputusan</h4>
         <p style="font-size: 0.88rem;">Keputusan program memakai data valid, bukan perkiraan.</p>
@@ -811,7 +846,11 @@
   <!-- Bagian 07: Galeri Foto Medis Asli -->
   <section class="container" style="padding: 70px 0;" id="galeri-medis">
     <div class="section-header">
-      <span class="section-pill">DOKUMENTASI KLINIS ASLI</span>
+      <div class="section-label-row">
+        <span class="section-num">07</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">DOKUMENTASI KLINIS</span>
+      </div>
       <h2 class="section-title">Galeri Fotografi &amp; Mikrograf Medis</h2>
       <p class="section-subtitle">
         Bukti visual autentik mikroskopis, radiologi, dan instrumen diagnostik penanggulangan TB di fasilitas kesehatan. Klik foto untuk melihat pembesaran dan penjelasan.
@@ -872,7 +911,11 @@
   <!-- Bagian 08 & 09: Tata Kelola, Keamanan Data & Era AI -->
   <section class="container" style="padding: 70px 0;">
     <div class="section-header">
-      <span class="section-pill">BAGIAN 08 &amp; 09 - TANTANGAN, ETIKA &amp; MASA DEPAN</span>
+      <div class="section-label-row">
+        <span class="section-num">08</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">TANTANGAN &amp; MASA DEPAN</span>
+      </div>
       <h2 class="section-title">Tantangan, Etika &amp; Masa Depan SITB</h2>
       <p class="section-subtitle">
         Ada empat tantangan utama dalam memakai SITB: <strong>privasi data</strong> (identitas dan status TB pasien wajib dirahasiakan dari pihak yang tidak berwenang), <strong>keamanan data</strong> (akun dan kata sandi harus dijaga, tidak dibagikan, dan petugas selalu keluar dari sistem setelah selesai), <strong>kualitas data</strong> (isian harus akurat, lengkap, dan konsisten agar laporan bisa dipercaya), serta <strong>integrasi data</strong> (format data dari puskesmas, rumah sakit, dan faskes swasta perlu diselaraskan).
@@ -924,7 +967,11 @@
   <!-- Section: Tim Peneliti & Pengembang Mahasiswa (Tanpa Teks Peran) -->
   <section class="container" style="padding: 70px 0;" id="tim-peneliti">
     <div class="section-header">
-      <span class="section-pill">TIM PENELITI &amp; PENGEMBANG MAHASISWA</span>
+      <div class="section-label-row">
+        <span class="section-num">09</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">TIM PENELITI</span>
+      </div>
       <h2 class="section-title">Penyusun Modul SITB Edu</h2>
       <p class="section-subtitle">
         Infografis edukatif ini disusun oleh Kelompok 2, 5, 8, dan 11 (sembilan mahasiswa peminatan Sistem Informasi Kesehatan &amp; Epidemiologi):
@@ -1018,7 +1065,11 @@
   <!-- Bagian 10: Uji Pemahaman Gamifikasi & Sertifikat Digital (Judul Lebar 1 Baris) -->
   <section class="container" style="padding: 70px 0 100px;" id="kuis">
     <div class="section-header section-header-wide">
-      <span class="section-pill">BAGIAN 10 - KAMPANYE LITERASI SIK &amp; EVALUASI</span>
+      <div class="section-label-row">
+        <span class="section-num">10</span>
+        <span class="section-label-sep">|</span>
+        <span class="section-label-text">KAMPANYE LITERASI &amp; EVALUASI</span>
+      </div>
       <h2 class="section-title">Uji Pemahaman &amp; Sertifikat Literasi SITB</h2>
       <p class="section-subtitle">
         Pesan utama kampanye ini adalah <strong>"Satu kasus TB, satu catatan digital."</strong> Ajakannya: catat hari ini, lacak kontak minggu ini, dan pantau pasien sampai pengobatan selesai. Data yang rapi menyelamatkan pasien berikutnya. Jawab 5 pertanyaan evaluasi di bawah ini untuk menguji pemahaman Anda dan dapatkan Sertifikat Digital Resmi "Duta Literasi SITB".
