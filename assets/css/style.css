@@ -12,7 +12,7 @@
   --burgundy-glow: #C93B5D;
   --rose-accent: #E07A5F;
   --rose-gold: #DDA15E;
-  
+
   /* Medical Bio Accents */
   --bio-cyan: #06B6D4;
   --bio-cyan-glow: rgba(6, 182, 212, 0.4);
@@ -29,7 +29,7 @@
   --bg-glass: rgba(30, 9, 17, 0.55);
   --border-glass: rgba(155, 44, 70, 0.25);
   --border-glow: rgba(201, 59, 93, 0.45);
-  
+
   --text-main: #F7EEF1;
   --text-muted: #BFA5AD;
   --text-faint: #785C65;
@@ -80,7 +80,9 @@
 }
 
 /* Global Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -98,7 +100,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.65;
   overflow-x: hidden;
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(117, 30, 51, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
     linear-gradient(to bottom, transparent, rgba(13, 4, 7, 0.8));
@@ -107,14 +109,19 @@ body {
 }
 
 [data-theme="light"] body {
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(155, 44, 70, 0.08) 0%, transparent 45%),
     radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 45%),
     linear-gradient(to bottom, #FAF5F6, #F3EAEF);
 }
 
 /* Typography Utility */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.25;
@@ -143,6 +150,17 @@ button {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Content Section */
+.content-section {
+  padding: 70px 0;
+  width: 100%;
+  position: relative;
+}
+
+.content-section.quiz-section {
+  padding: 70px 0 100px;
 }
 
 /* Glassmorphism Card Style */
@@ -188,7 +206,7 @@ header.site-header.nav-open .nav-links {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
 
 .brand-emblem {
@@ -215,8 +233,14 @@ header.site-header.nav-open .nav-links {
 }
 
 @keyframes emblemShine {
-  0% { transform: translateX(-100%) rotate(45deg); }
-  30%, 100% { transform: translateX(200%) rotate(45deg); }
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  30%,
+  100% {
+    transform: translateX(200%) rotate(45deg);
+  }
 }
 
 .brand-text h1 {
@@ -232,7 +256,7 @@ header.site-header.nav-open .nav-links {
 }
 
 .brand-text p {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-family: var(--font-sans);
   font-weight: 500;
   text-transform: uppercase;
@@ -261,7 +285,8 @@ header.site-header.nav-open .nav-links {
   gap: 6px;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
   color: var(--text-main);
   background: rgba(155, 44, 70, 0.15);
 }
@@ -376,8 +401,17 @@ header.site-header.nav-open .nav-links {
 }
 
 @keyframes pulseCyan {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.4); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.4);
+  }
 }
 
 .hero-title {
@@ -507,7 +541,8 @@ header.site-header.nav-open .nav-links {
   stroke-linejoin: round;
   flex-shrink: 0;
 }
-  margin-top: 4px;
+
+margin-top: 4px;
 }
 
 /* 3D Visualizer Container */
@@ -584,7 +619,8 @@ header.site-header.nav-open .nav-links {
   transition: all var(--transition-fast);
 }
 
-.hud-btn:hover, .hud-btn.active {
+.hud-btn:hover,
+.hud-btn.active {
   background: var(--burgundy-primary);
   border-color: var(--burgundy-glow);
   color: #FFF;
@@ -1536,29 +1572,37 @@ footer.site-footer {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .hero-desc {
     margin-left: auto;
     margin-right: auto;
   }
+
   .hero-cta-group {
     justify-content: center;
   }
+
   .grid-3 {
     grid-template-columns: 1fr 1fr;
   }
+
   .sources-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+
   .step-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .analytics-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .team-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1566,8 +1610,10 @@ footer.site-footer {
 
 /* === MOBILE (max 768px) === */
 @media (max-width: 768px) {
+
   /* Base */
-  body, html {
+  body,
+  html {
     overflow-x: hidden;
     width: 100%;
   }
@@ -1577,9 +1623,18 @@ footer.site-footer {
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 20px !important;
     max-width: 100%;
     overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .content-section {
+    padding: 38px 0 !important;
+  }
+
+  .content-section.quiz-section {
+    padding: 38px 0 60px !important;
   }
 
   /* ── Navbar Mobile ── */
@@ -1768,8 +1823,8 @@ footer.site-footer {
   }
 
   .sources-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 
   .step-grid {
@@ -1784,37 +1839,60 @@ footer.site-footer {
 
   /* ── Feature Cards & Inline Headers ── */
   .feature-card {
-    padding: 20px 18px;
+    padding: 18px 16px !important;
+  }
+
+  .feature-card p {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
   }
 
   .card-header-inline {
-    gap: 12px;
-    margin-bottom: 12px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 10px !important;
   }
 
-  .card-header-inline .card-icon {
-    width: 44px;
-    height: 44px;
+  .card-header-inline .card-icon,
+  .card-icon {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .card-icon svg,
+  .card-header-inline .card-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke-width: 2 !important;
+  }
+
+  .card-icon img,
+  .card-header-inline .card-icon img {
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: contain !important;
   }
 
   .card-header-inline .step-num-badge {
-    width: 32px;
-    height: 32px;
-    font-size: 0.88rem;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
   }
 
   .card-header-inline h3 {
-    font-size: 1.05rem;
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
   }
 
   .card-header-inline h4 {
-    font-size: 0.96rem;
-  }
-
-  .card-icon {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 12px;
+    font-size: 0.94rem !important;
+    line-height: 1.3 !important;
   }
 
   .step-card {
@@ -1966,7 +2044,7 @@ footer.site-footer {
   }
 
   .container {
-    padding: 0 18px;
+    padding: 0 16px !important;
   }
 
   .sources-grid {
@@ -2006,4 +2084,3 @@ footer.site-footer {
     font-size: 0.92rem;
   }
 }
-
