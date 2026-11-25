@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SITB Edu: Literasi SIK Tuberkulosis</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F6F2;--surf:#fff;--ink:#3F5249;--mute:#5F7A6D;--acc:#6B8A7A;--acc2:#A8B8A8;--dark:#43544C;--line:#C9D8D0;--pill:#DDE5DE;--soft:#EAEFEA;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121A17;--surf:#1B2723;--ink:#E3ECE7;--mute:#A5BBB0;--acc:#7FA08E;--acc2:#4F6B5E;--dark:#2E4038;--line:#2F4439;--pill:#26372F;--soft:#22312A;--on:#fff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121A17;--surf:#1B2723;--ink:#E3ECE7;--mute:#A5BBB0;--acc:#7FA08E;--acc2:#4F6B5E;--dark:#2E4038;--line:#2F4439;--pill:#26372F;--soft:#22312A;--on:#fff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(88px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 Inter,system-ui,sans-serif;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cg stroke='%236B8A7A' stroke-opacity='.14' fill='%236B8A7A' fill-opacity='.2'%3E%3Cpath d='M40 120L180 60L300 150L450 90M300 150L260 300L420 380M260 300L90 420L200 540M420 380L560 300'/%3E%3Ccircle cx='40' cy='120' r='5'/%3E%3Ccircle cx='180' cy='60' r='4'/%3E%3Ccircle cx='300' cy='150' r='5'/%3E%3Ccircle cx='450' cy='90' r='4'/%3E%3Ccircle cx='260' cy='300' r='5'/%3E%3Ccircle cx='420' cy='380' r='4'/%3E%3Ccircle cx='90' cy='420' r='5'/%3E%3Ccircle cx='200' cy='540' r='4'/%3E%3Ccircle cx='560' cy='300' r='5'/%3E%3C/g%3E%3C/svg%3E")}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3,.brand b{font-family:Poppins,system-ui,sans-serif;line-height:1.2;margin:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:640px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;background:var(--acc);display:grid;place-items:center;color:#fff;font-size:22px}
+.brand{flex:1;line-height:1.2}.brand b{font-size:1.25rem;display:block}.brand span{color:var(--acc);font-size:.9rem}
+.mb{all:unset;cursor:pointer;padding:10px;font-size:26px;line-height:1}
+.mb:focus-visible,.go:focus-visible,.opt:focus-visible,nav a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+nav{display:none;max-width:640px;margin:0 auto;padding:0 18px 14px}nav.open{display:block}
+nav a{display:block;padding:9px 12px;border-radius:10px;color:var(--ink);text-decoration:none;font-weight:500}
+nav a:hover{background:var(--pill)}
+main{max-width:640px;margin:0 auto;padding:20px 18px 40px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:20px 10px;text-align:center;box-shadow:0 4px 14px rgba(63,82,73,.08)}
+.mini i{font-style:normal;font-size:28px;display:block}.mini b{font-family:Poppins,sans-serif;font-size:1.1rem;display:block;margin-top:6px}.mini span{font-size:.85rem;color:var(--mute)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:28px;padding:24px;margin-top:16px;box-shadow:0 6px 18px rgba(63,82,73,.08)}
+.sec{text-align:center;margin-top:56px}
+.pill{display:inline-block;background:var(--pill);color:var(--acc);font-weight:600;letter-spacing:.08em;border-radius:999px;padding:8px 20px;font-size:.85rem}
+.sec h2{font-size:clamp(1.9rem,8vw,2.5rem);margin:14px 0 0;font-weight:700}
+.sec h2::after{content:"";display:block;width:100px;height:6px;border-radius:3px;background:var(--acc2);margin:16px auto 0}
+.sec p{color:var(--mute);margin:14px 0 0}
+.row{display:flex;gap:16px;align-items:flex-start}
+.ic{flex:none;width:56px;height:56px;border-radius:16px;background:var(--acc);display:grid;place-items:center;font-size:26px;box-shadow:0 4px 10px rgba(63,82,73,.2)}
+.ic.b{background:var(--acc2)}.ic.c{background:var(--dark)}
+.card h3{font-size:1.25rem;font-weight:700}.card p{margin:6px 0 0;color:var(--mute)}
+.go{all:unset;cursor:pointer;color:var(--acc);font-weight:600;margin-top:12px;display:inline-block}
+.det{display:none;background:var(--soft);border-radius:16px;padding:12px 14px;margin-top:12px;font-size:.95rem}.open>.det{display:block}
+.src{border:1px solid var(--line);border-radius:22px;padding:16px;margin-top:12px;display:flex;gap:14px;align-items:flex-start}
+.src .ic{width:46px;height:46px;background:var(--pill);font-size:22px;box-shadow:none}
+.src b{font-family:Poppins,sans-serif}.src p{margin:2px 0 0;font-size:.92rem}
+.num{flex:none;width:46px;height:46px;border-radius:14px;background:var(--acc);color:#fff;font:700 1.1rem Poppins,sans-serif;display:grid;place-items:center}
+.q{color:var(--acc);font-weight:600;font-size:.82rem;text-transform:uppercase;margin-top:4px}
+.ok{display:flex;gap:12px;margin-top:16px}.ok i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-style:normal;display:grid;place-items:center;font-size:14px;margin-top:2px}
+.ok b{font-family:Poppins,sans-serif;display:block}.ok span{color:var(--mute);font-size:.95rem}
+.grp{border:1px solid var(--line);border-radius:18px;padding:12px 16px;margin-top:12px}.grp b{font-family:Poppins,sans-serif}.grp div{color:var(--mute);font-size:.92rem;outline:0}
+.chip{display:inline-block;background:var(--pill);border-radius:999px;padding:4px 14px;font-weight:600;font-size:.9rem;margin-top:8px}
+.opt{all:unset;box-sizing:border-box;display:block;width:100%;padding:12px 16px;margin-top:10px;border:2px solid var(--line);border-radius:16px;cursor:pointer;background:var(--surf)}
+.opt.y{border-color:#2E8B57;background:rgba(46,139,87,.15)}.opt.n{border-color:#C25A4F;background:rgba(194,90,79,.14)}
+.fb{color:var(--mute);font-size:.92rem;margin-top:10px}
+footer{text-align:center;color:var(--mute);font-size:.88rem;margin-top:48px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<div class="bar"><div class="logo">&#9829;</div><div class="brand"><b>SITB Edu</b><span>Literasi SIK Tuberkulosis</span></div><button class="mb" id="mb" aria-label="Buka menu" aria-expanded="false">&#9776;</button></div>
+<nav id="nav"></nav>
+</header>
+<main>
+<div class="g2" id="hero"></div>
+<div class="card" id="grp"></div>
+<div id="app"></div>
+<footer>Materi edukasi literasi SIK. Rujuk pedoman dan petunjuk teknis Kementerian Kesehatan terbaru untuk prosedur resmi.</footer>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)};
+var HERO=[["🔍","Surveilans","Pantau kasus TB"],["📍","Tracing Kontak","Lacak orang berisiko"],["💊","TB-SO / TB-RO","Pantau pengobatan"],["🏥","Faskes Swasta","Ikut mencatat kasus"]];
+$("hero").innerHTML=HERO.map(function(h){return '<div class="mini"><i>'+h[0]+'</i><b>'+h[1]+'</b><span>'+h[2]+'</span></div>'}).join("");
+$("grp").innerHTML='<div class="row"><div class="ic">👥</div><div><h3>KELOMPOK 2, 5, 8, 11</h3><p style="margin:2px 0 0">Penyusun Infografis Edukatif</p></div></div><span class="chip">4 Kelompok</span>'+[2,5,8,11].map(function(k){return '<div class="grp"><b>Kelompok '+k+'</b><div contenteditable="true" spellcheck="false">Ketuk untuk mengisi nama anggota dan NIM</div></div>'}).join("");
+
+var NAV=[["b1","Konsep Dasar"],["b2","Fungsi & Sumber Data"],["b4","Alur Kerja"],["b5","Jenis Analisis"],["b6","Aplikasi & Manfaat"],["b8","Tantangan & Masa Depan"],["b10","Kampanye & Kuis"]];
+$("nav").innerHTML=NAV.map(function(n){return '<a href="#'+n[0]+'">'+n[1]+'</a>'}).join("");
+$("mb").onclick=function(){var o=$("nav").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$("nav").onclick=function(){this.classList.remove("open");$("mb").setAttribute("aria-expanded","false")};
+
+function sec(id,pill,t,sub){return '<section id="'+id+'" class="sec"><span class="pill">'+pill+'</span><h2>'+t+'</h2>'+(sub?'<p>'+sub+'</p>':'')+'</section>'}
+function ic3(i,c,t,d){return '<div class="card"><div class="row"><div class="ic '+c+'">'+i+'</div><div><h3>'+t+'</h3><p>'+d+'</p></div></div></div>'}
+var h="";
+h+=sec("b1","BAGIAN 01","Apa Itu SIK dan SITB?");
+h+='<div class="card"><h3>🧠 Konsep Dasar</h3><p style="margin-top:14px"><b>Sistem Informasi Kesehatan (SIK)</b> adalah rangkaian proses mengumpulkan, mengolah, dan menyajikan data kesehatan agar bisa dipakai mengambil keputusan.</p><p style="margin-top:14px"><b>SITB (Sistem Informasi Tuberkulosis)</b> adalah SIK khusus program TB. Sistem ini mencatat dan melaporkan kasus TB dari terduga sampai hasil akhir pengobatan, termasuk dari faskes swasta.</p></div>';
+h+=ic3("📋","","SIK","Sistem data kesehatan dari berbagai fasilitas pelayanan.");
+h+=ic3("🫁","b","SITB","Pencatatan dan pelaporan kasus TB secara terpadu.");
+h+=ic3("🎯","c","Literasi Digital","Kemampuan petugas dan masyarakat memakai sistem dengan benar dan aman.");
+
+h+=sec("b2","BAGIAN 02 & 03","Fungsi Utama & Sumber Data","Ketuk kartu fungsi untuk melihat contoh.");
+var F=[["1. Surveilans Ketat","Memantau jumlah, sebaran, dan tren kasus TB secara berkelanjutan.","Contoh: puskesmas melihat kasus naik di satu kecamatan, lalu menambah penyuluhan dan skrining.","🔍",""],
+["2. Tracing Kontak","Menelusuri orang yang berkontak erat dengan pasien TB.","Contoh: anggota serumah pasien dicatat dan diperiksa. Yang bergejala segera dirujuk.","📍","b"],
+["3. Pemantauan Pengobatan","Memantau pasien TB-SO dan TB-RO sampai pengobatan selesai.","Contoh: pasien yang terlambat ambil obat terlihat di sistem, sehingga petugas segera menghubunginya.","💊","c"]];
+F.forEach(function(f){h+='<div class="card tg"><div class="ic '+f[4]+'">'+f[3]+'</div><h3 style="margin-top:14px">'+f[0]+'</h3><p>'+f[1]+'</p><button class="go">Lihat Contoh & Detail →</button><div class="det">'+f[2]+'</div></div>'});
+h+='<div class="card" style="text-align:center"><h3>Sumber Data SITB</h3><p>Semua sumber terhubung dan mengarah ke satu pusat data TB.</p>';
+[["📄","Puskesmas & RS Pemerintah","Mencatat terduga, kasus, dan pengobatan pasien."],["🏥","Faskes Swasta","Klinik, dokter praktik, dan RS swasta ikut melaporkan kasus."],["🧪","Laboratorium","Hasil pemeriksaan dahak dan tes cepat molekuler."],["👪","Kontak Erat Pasien","Hasil penelusuran dan pemeriksaan kontak."]].forEach(function(s){h+='<div class="src" style="text-align:left"><div class="ic">'+s[0]+'</div><div><b>'+s[1]+'</b><p>'+s[2]+'</p></div></div>'});
+h+='</div>';
+
+h+=sec("b4","BAGIAN 04","Bagaimana Data TB Diolah?","Tahapan mengubah data mentah menjadi informasi siap guna. Ketuk tiap tahap.");
+[["Pengumpulan Data","Petugas faskes mencatat terduga dan kasus TB beserta hasil pemeriksaan.","Pastikan identitas dan klasifikasi kasus terisi lengkap."],
+["Penyimpanan","Data tersimpan terpusat di SITB dan dapat diakses sesuai peran.","Hanya petugas berwenang yang boleh membuka data pasien."],
+["Validasi & Pembersihan","Memeriksa data ganda, salah ketik, dan isian yang belum lengkap.","Cek data pasien yang sudah ada sebelum membuat catatan baru."],
+["Analisis Data","Mengenali pola dan tren kasus, kepatuhan berobat, dan hasil pengobatan.","Contoh: wilayah dengan banyak pasien putus berobat."],
+["Visualisasi","Menyajikan hasil dalam dashboard, grafik, dan laporan.","Dipakai dinas kesehatan dan puskesmas untuk memantau capaian."],
+["Pengambilan Keputusan","Dasar menentukan kebijakan, kebutuhan obat, dan intervensi tepat sasaran.","Contoh: menambah petugas pelacak kontak di wilayah rawan."]].forEach(function(s,i){h+='<div class="card tg"><div class="row"><div class="num">'+(i+1)+'</div><div><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div></div><button class="go">Lihat rincian →</button><div class="det">'+s[2]+'</div></div>'});
+
+h+=sec("b5","BAGIAN 05","Jenis Analisis Data TB");
+[["01","Deskriptif","What happened? (Apa yang terjadi?)","Menjelaskan kejadian lampau dari data historis.","Contoh: jumlah kasus TB baru di kabupaten selama triwulan pertama."],
+["02","Diagnostik","Why did it happen? (Mengapa terjadi?)","Mencari akar penyebab suatu kondisi.","Contoh: mencari faktor di balik naiknya angka putus berobat, seperti jarak ke faskes atau efek samping obat."],
+["03","Prediktif","What might happen? (Apa yang mungkin terjadi?)","Memperkirakan kejadian ke depan dari data historis.","Contoh: memperkirakan kebutuhan obat anti-TB bulan depan dari tren kasus."],
+["04","Preskriptif","What should be done? (Tindakan apa yang diambil?)","Menghasilkan rekomendasi tindakan nyata.","Contoh: merekomendasikan penempatan petugas pelacak kontak di wilayah kasus tinggi."]].forEach(function(t){h+='<div class="card"><div class="row"><div class="num">'+t[0]+'</div><div><h3>'+t[1]+' Analytics</h3><div class="q">'+t[2]+'</div></div></div><p style="margin-top:14px">'+t[3]+'</p><div class="det" style="display:block"><b>'+t[4].split(":")[0]+':</b>'+t[4].slice(t[4].indexOf(":")+1)+'</div></div>'});
+
+h+=sec("b6","BAGIAN 06 & 07","Aplikasi & Manfaat","Penerapan nyata SITB dan manfaat utamanya.");
+h+=ic3("🛡️","","Surveilans Penyakit","Memantau tren dan mendeteksi lonjakan kasus TB lebih dini.");
+h+=ic3("🏗️","b","Perencanaan Layanan","Menentukan kebutuhan obat, alat tes, dan petugas dari jumlah kasus.");
+h+=ic3("💊","c","Pemantauan TB-SO & TB-RO","Memastikan pasien menyelesaikan pengobatan sesuai jenisnya.");
+h+=ic3("🏥","","Keterlibatan Faskes Swasta","Kasus dari faskes swasta ikut tercatat, sehingga tidak ada yang terlewat.");
+h+='<div class="card"><h3 style="text-align:center">Manfaat Utama SITB</h3>';
+[["Meningkatkan Kualitas Keputusan","Keputusan program memakai data valid, bukan perkiraan."],["Mendukung Deteksi Dini","Kasus dan kontak berisiko ditemukan lebih awal."],["Mendorong Efisiensi Pelayanan","Obat dan tenaga dialokasikan sesuai kebutuhan nyata."],["Memperkuat Pemantauan Berkala","Pasien dipantau terus sampai pengobatan selesai."]].forEach(function(m){h+='<div class="ok"><i>✓</i><div><b>'+m[0]+'</b><span>'+m[1]+'</span></div></div>'});
+h+='</div>';
+
+h+=sec("b8","BAGIAN 08 & 09","Tantangan, Etika & Masa Depan");
+h+=ic3("🔐","","Data Privacy","Identitas dan status TB pasien wajib dirahasiakan dari pihak tak berwenang.");
+h+=ic3("🔒","b","Data Security","Jaga akun dan kata sandi. Jangan berbagi akses dan selalu keluar dari sistem.");
+h+=ic3("✅","c","Data Quality","Isi data akurat, lengkap, dan konsisten agar laporan bisa dipercaya.");
+h+=ic3("🔗","c","Data Integration","Menyelaraskan format data dari puskesmas, RS, dan faskes swasta.");
+h+='<div class="card" style="text-align:center"><h3>Masa Depan SITB</h3><p>Teknologi digital membuka peluang baru bagi penanggulangan TB.</p>';
+[["🤖","Artificial Intelligence","Membantu mengenali pola kasus secara otomatis."],["🧠","Machine Learning","Model prediksi kasus dan kebutuhan obat."],["☁️","Cloud Computing","Penyimpanan dan pengolahan data berskala besar."],["📱","Aplikasi Seluler","Pencatatan dan pengingat berobat lebih mudah."]].forEach(function(s){h+='<div class="src" style="text-align:left"><div class="ic">'+s[0]+'</div><div><b>'+s[1]+'</b><p>'+s[2]+'</p></div></div>'});
+h+='</div>';
+
+h+=sec("b10","BAGIAN 10","Kampanye & Uji Pemahaman","Satu kasus TB, satu catatan digital. Catat hari ini, lacak kontak minggu ini, pantau sampai selesai.");
+h+='<div class="card" id="quiz"></div>';
+$("app").innerHTML=h;
+document.querySelectorAll(".tg").forEach(function(c){var b=c.querySelector(".go");b.onclick=function(){var o=c.classList.toggle("open");b.setAttribute("aria-expanded",o)}});
+
+var Q=[["Siapa yang perlu mencatat kasus TB di SITB?",["Hanya puskesmas","Semua faskes, termasuk swasta","Hanya RS pemerintah"],1,"Faskes swasta juga mencatat agar tidak ada kasus yang terlewat."],
+["TB-RO berarti kuman TB...",["Sensitif terhadap semua obat","Resistan terhadap obat anti-TB","Hanya menyerang anak"],1,"RO = resistan obat, perlu pemantauan lebih ketat."],
+["Apa gunanya tracing kontak?",["Menemukan orang yang mungkin tertular lebih dini","Menghapus data pasien","Mengganti pengobatan"],0,"Kontak erat yang ditemukan dini bisa segera diperiksa."],
+["Mana yang termasuk menjaga keamanan data?",["Berbagi kata sandi dengan rekan","Tidak membagikan akses akun","Membiarkan akun tetap terbuka"],1,"Akun bersifat pribadi dan data pasien wajib dirahasiakan."]];
+var qi=0,sc=0,qz=$("quiz");
+function show(){if(qi>=Q.length){qz.innerHTML='<h3>Skor kamu: '+sc+' dari '+Q.length+'</h3><button class="opt" id="rs">Ulangi kuis</button>';$("rs").onclick=function(){qi=0;sc=0;show()};return}
+var q=Q[qi];qz.innerHTML='<h3>'+(qi+1)+'. '+q[0]+'</h3>';
+q[1].forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;b.onclick=function(){qz.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add("y")});
+if(i===q[2])sc++;else b.classList.add("n");
+var f=document.createElement("p");f.className="fb";f.textContent=q[3];qz.appendChild(f);
+var n=document.createElement("button");n.className="opt";n.textContent="Lanjut";n.onclick=function(){qi++;show()};qz.appendChild(n)};qz.appendChild(b)})}
+show();
+</script>
+</body>
+</html>

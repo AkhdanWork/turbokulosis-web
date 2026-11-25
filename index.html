@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SITB Edu - Literasi SIK Tuberkulosis & Laboratorium Medis 3D</title>
+  <meta name="description" content="Portal edukasi digital Sistem Informasi Tuberkulosis (SITB) Kementerian Kesehatan RI. Dilengkapi visualisasi 3D Three.js, simulasi alur data Anime.js, galeri medis asli, dan uji kompetensi bersertifikat.">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet (Burgundy Glassmorphism & Medical HUD) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (1 Horizontal Line, Clean & Compact) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <div class="brand-emblem">
+          <img src="assets/accountlogo.png" alt="Logo Kemenkes RI" style="width: 28px; height: 28px; object-fit: contain;">
+        </div>
+        <div class="brand-text">
+          <h1>SITB<span>Edu</span></h1>
+          <p>LITERASI SISTEM INFORMASI KESEHATAN</p>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-item">Beranda</a>
+        <a href="#three-viewer" class="nav-item">Lab 3D</a>
+        <a href="#konsep" class="nav-item">Konsep SIK</a>
+        <a href="#alur-data" class="nav-item">Alur Data</a>
+        <a href="#komparator" class="nav-item">TB-SO vs TB-RO</a>
+        <a href="#galeri-medis" class="nav-item">Galeri Klinis</a>
+        <a href="#tim-peneliti" class="nav-item">Tim Peneliti</a>
+        <a href="#kuis" class="nav-item">Uji Kompetensi</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="theme-toggle" title="Ganti Tema (Dark/Light)">
+          <span id="theme-icon">
+            <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"></circle>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h2 class="hero-title">
+            Transformasi Digital <br>
+            <span class="gradient-text">Penanggulangan Tuberkulosis</span>
+          </h2>
+          <p class="hero-desc">
+            Sistem Informasi Tuberkulosis (SITB) adalah pilar terintegrasi satu data nasional untuk mencatat, melacak kontak erat, memantau terapi TB-SO dan TB-RO, serta mendukung eliminasi TBC di Indonesia. Materi edukasi ini berfokus pada empat pilar: <strong>Surveilans</strong> untuk memantau kasus TB, <strong>Tracing Kontak</strong> untuk melacak orang berisiko tertular, <strong>TB-SO &amp; TB-RO</strong> untuk memantau pengobatan sesuai jenisnya, serta pelibatan <strong>Faskes Swasta</strong> agar ikut mencatat kasus tanpa ada yang terlewat.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#three-viewer" class="btn-primary">
+              <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span>Eksplorasi Lab Medis 3D</span>
+            </a>
+            <a href="#tim-peneliti" class="btn-secondary">
+              <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <line x1="19" y1="8" x2="19" y2="14"></line>
+                <line x1="22" y1="11" x2="16" y2="11"></line>
+              </svg>
+              <span>Profil Tim Mahasiswa (9 Anggota)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Visual Emblem Card -->
+        <div class="hero-visual">
+          <div class="glass-panel" style="padding: 32px; text-align: center; position: relative;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--burgundy-primary), var(--burgundy-glow)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: #FFF; box-shadow: var(--shadow-glow);">
+              <svg class="svg-ic" width="42" height="42" viewBox="0 0 24 24" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Prinsip Satu Pasien, Satu Catatan</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+              Setiap penderita tuberkulosis di faskes pemerintah maupun swasta tercatat dalam sistem berbasis NIK terpadu demi memastikan kelangsungan konsumsi obat tanpa putus.
+            </p>
+            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+              <span class="tool-chip">
+                <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Surveilans Aktif
+              </span>
+              <span class="tool-chip">
+                <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Pelacakan Kontak
+              </span>
+              <span class="tool-chip">
+                <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+                Pemantauan OAT
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar (Sebaris Penuh Menyeberangi Lebar Halaman) -->
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <span class="num">100%</span>
+          <span class="label">Faskes Terintegrasi</span>
+        </div>
+        <div class="metric-card">
+          <span class="num">&lt;2 Jam</span>
+          <span class="label">Diagnostik TCM</span>
+        </div>
+        <div class="metric-card">
+          <span class="num">1:15</span>
+          <span class="label">Rasio Tracing Kontak</span>
+        </div>
+        <div class="metric-card">
+          <span class="num">SatuSehat</span>
+          <span class="label">Interoperabilitas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Medical Laboratory (Three.js Visualizer) -->
+  <section class="three-section" id="three-viewer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">SIMULASI KLINIS 3D</span>
+        <h2 class="section-title">Laboratorium Anatomi & Mikrobiologi 3D</h2>
+        <p class="section-subtitle">
+          Interaksi langsung secara 360° dengan struktur bakteri basil tahan asam <em>Mycobacterium tuberculosis</em> dan representasi volumetrik paru-paru terinfeksi lesi kavitas.
+        </p>
+      </div>
+
+      <div class="three-wrapper">
+        <!-- HUD Top Bar -->
+        <div class="three-hud-top">
+          <div class="hud-title-box">
+            <span class="hud-tag" id="hud-tag">PATOGEN TB - MIKROBIOLOGI</span>
+            <h3 class="hud-name" id="hud-name">Mycobacterium tuberculosis (BTA)</h3>
+          </div>
+
+          <div class="hud-controls">
+            <button class="hud-btn active" id="btn-3d-bacteria">
+              <svg class="svg-ic" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M6 18h8"></path><path d="M3 22h18"></path><path d="m14 22-4-4V9l3-3"></path><path d="M9 14h6"></path><path d="M12 6a3 3 0 0 0-3-3H6v6a3 3 0 0 0 3 3"></path>
+              </svg>
+              <span>Bakteri Basil (BTA)</span>
+            </button>
+            <button class="hud-btn" id="btn-3d-lungs">
+              <svg class="svg-ic" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M12 3v13"></path><path d="M12 9c-2-2-5-3-7-1s-3 6-1 9 5 3 8 0"></path><path d="M12 9c2-2 5-3 7-1s3 6 1 9-5 3-8 0"></path>
+              </svg>
+              <span>Paru & Tuberkel Infeksi</span>
+            </button>
+            <button class="hud-btn active" id="btn-3d-rotate" title="Rotasi Otomatis">
+              <svg class="svg-ic" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+              </svg>
+              <span>Putar</span>
+            </button>
+            <button class="hud-btn" id="btn-3d-wireframe" title="Mode Scanner HUD">
+              <svg class="svg-ic" width="16" height="16" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path>
+              </svg>
+              <span>Scanner</span>
+            </button>
+            <button class="hud-btn" id="btn-3d-reset" title="Reset Sudut Kamera">
+              <svg class="svg-ic" width="16" height="16" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle>
+              </svg>
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- WebGL Canvas Container -->
+        <div id="three-canvas-container"></div>
+
+        <!-- HUD Bottom Bar -->
+        <div class="three-hud-bottom">
+          <div class="hud-info-card">
+            <h4>
+              <svg class="svg-ic" width="18" height="18" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              Karakteristik Patologis
+            </h4>
+            <p id="hud-desc">
+              Bakteri berbentuk batang (basil) lurus/agak bengkok dengan panjang 2–4 µm dan lebar 0.2–0.5 µm. Memiliki dinding sel kaya lipid & asam mikolat kompleks yang membuatnya tahan asam, hidrofobik, dan kebal terhadap berbagai antibiotik standar.
+            </p>
+          </div>
+
+          <div class="hud-tools">
+            <span class="tool-chip">
+              <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="7"></rect><line x1="12" y1="6" x2="12" y2="10"></line></svg>
+              Drag: Rotasi 360°
+            </span>
+            <span class="tool-chip">
+              <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
+              Scroll: Zoom In/Out
+            </span>
+            <span class="tool-chip">
+              <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              WebGL Hardware Accel
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 01: Konsep Dasar SIK & SITB -->
+  <section class="container" style="padding: 70px 0;" id="konsep">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 01 - LANDASAN ILMIAH</span>
+      <h2 class="section-title">Apa Itu SIK dan SITB?</h2>
+      <p class="section-subtitle">
+        Sistem Informasi Kesehatan (SIK) adalah rangkaian proses mengumpulkan, mengolah, dan menyajikan data kesehatan agar bisa dipakai untuk mengambil keputusan. SIK menghubungkan data dari berbagai fasilitas pelayanan kesehatan sehingga petugas dan pengambil kebijakan punya gambaran yang sama tentang kondisi masyarakat. Sistem Informasi Tuberkulosis (SITB) adalah SIK yang khusus dipakai untuk program TB. SITB mencatat dan melaporkan kasus TB mulai dari terduga TB sampai hasil akhir pengobatan, termasuk kasus dari fasilitas kesehatan swasta. Supaya sistem ini berguna, petugas dan masyarakat perlu punya literasi digital, yaitu kemampuan memakai sistem dengan benar, aman, dan bertanggung jawab.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <svg class="svg-ic" width="28" height="28" viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <h3>Sistem Informasi Kesehatan (SIK)</h3>
+        <p>
+          SIK adalah sistem data kesehatan dari berbagai fasilitas pelayanan yang mengintegrasikan pengumpulan, pengolahan, dan pelaporan agar petugas dan pimpinan memiliki basis data seragam dalam pengambilan keputusan.
+        </p>
+      </div>
+
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <img src="assets/accountlogo.png" alt="Logo Kemenkes RI">
+        </div>
+        <h3>SITB Nasional Kemenkes</h3>
+        <p>
+          SITB adalah pencatatan dan pelaporan kasus TB secara terpadu. Sistem ini mencatat setiap terduga hingga hasil akhir pengobatan, termasuk dari faskes swasta, agar terdata dalam satu basis data nasional.
+        </p>
+      </div>
+
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <svg class="svg-ic" width="28" height="28" viewBox="0 0 24 24">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"></path>
+          </svg>
+        </div>
+        <h3>Literasi Digital & Etika</h3>
+        <p>
+          Literasi digital adalah kemampuan petugas dan masyarakat memakai sistem dengan benar dan aman, bertanggung jawab menjaga kerahasiaan pasien, dan memastikan keakuratan data yang diinput.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 02 & 03: Fungsi Utama & Sumber Data -->
+  <section class="container" style="padding: 70px 0;">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 02 &amp; 03 - OPERASIONAL &amp; SUMBER DATA</span>
+      <h2 class="section-title">Fungsi Utama &amp; Sumber Data SITB</h2>
+      <p class="section-subtitle">
+        SITB punya tiga fungsi utama. Pertama, <strong>surveilans ketat</strong>, yaitu memantau jumlah, sebaran, dan tren kasus TB secara terus-menerus. Misalnya, puskesmas melihat kasus naik di satu kecamatan, lalu menambah penyuluhan dan skrining di sana. Kedua, <strong>tracing kontak</strong>, yaitu menelusuri orang yang berkontak erat dengan pasien. Anggota serumah pasien dicatat dan diperiksa, dan yang bergejala segera dirujuk. Ketiga, <strong>pemantauan pengobatan</strong> pasien TB-SO (sensitif obat) dan TB-RO (resistan obat) sampai selesai. Pasien yang terlambat mengambil obat akan terlihat di sistem, sehingga petugas bisa segera menghubunginya.
+      </p>
+    </div>
+
+    <div class="glass-panel" style="padding: 32px; margin-bottom: 30px;">
+      <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--rose-accent);">Integrasi Sumber Data TB Terpadu</h3>
+      <p style="margin-bottom: 24px;">
+        Data SITB berasal dari beberapa sumber: <strong>puskesmas dan rumah sakit pemerintah</strong>, <strong>fasilitas kesehatan swasta</strong> seperti klinik, dokter praktik mandiri, dan rumah sakit swasta, <strong>laboratorium</strong> yang melaporkan hasil pemeriksaan dahak atau tes cepat molekuler, serta <strong>hasil penelusuran dan pemeriksaan kontak erat pasien</strong>. Semuanya mengarah ke satu pusat data TB nasional.
+      </p>
+
+      <div class="grid-3" style="grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <div class="metric-card" style="text-align: left; padding: 18px;">
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 4px;">Puskesmas &amp; RS Pemerintah</h4>
+          <p style="font-size: 0.82rem;">Mencatat terduga, kasus aktif, hasil laboratorium, dan pengobatan pasien.</p>
+        </div>
+        <div class="metric-card" style="text-align: left; padding: 18px;">
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 4px;">Faskes Swasta (PPM)</h4>
+          <p style="font-size: 0.82rem;">Klinik dan dokter praktik swasta melaporkan kasus agar tidak ada yang terlewat.</p>
+        </div>
+        <div class="metric-card" style="text-align: left; padding: 18px;">
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 4px;">Laboratorium TCM</h4>
+          <p style="font-size: 0.82rem;">Hasil pemeriksaan dahak mikroskopis dan Tes Cepat Molekuler GeneXpert.</p>
+        </div>
+        <div class="metric-card" style="text-align: left; padding: 18px;">
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 4px;">Kontak Erat Pasien</h4>
+          <p style="font-size: 0.82rem;">Hasil penelusuran anggota serumah dan kontak dekat untuk deteksi dini.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 04: Alur Pengolahan Data Interaktif (Anime.js) -->
+  <section class="container" style="padding: 70px 0;" id="alur-data">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 04 - ARSITEKTUR INTEGRASI</span>
+      <h2 class="section-title">Bagaimana Data TB Diolah?</h2>
+      <p class="section-subtitle">
+        Pengolahan data terdiri dari enam tahap. Tahap pertama adalah <strong>pengumpulan data</strong>, saat petugas faskes mencatat terduga dan kasus TB beserta hasil pemeriksaannya (pastikan identitas pasien dan klasifikasi kasus terisi lengkap). Tahap kedua adalah <strong>penyimpanan</strong> di SITB secara terpusat, dan hanya petugas berwenang yang boleh membuka data pasien. Tahap ketiga adalah <strong>validasi dan pembersihan</strong>, yaitu memeriksa data ganda, salah ketik, dan isian yang belum lengkap (cek dulu apakah pasien sudah terdaftar sebelum membuat catatan baru, supaya tidak ada data ganda). Tahap keempat adalah <strong>analisis</strong> untuk mengenali pola dan tren, misalnya wilayah dengan banyak pasien putus berobat. Tahap kelima adalah <strong>visualisasi</strong>, yaitu menyajikan hasil dalam dashboard, grafik, dan laporan untuk memantau capaian. Tahap keenam adalah <strong>pengambilan keputusan</strong>, seperti menentukan kebutuhan obat atau menambah petugas pelacak kontak di wilayah rawan.
+      </p>
+    </div>
+
+    <div class="glass-panel flow-container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <span style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--rose-accent); display: flex; align-items: center; gap: 8px;">
+          <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+          TOPOLOGI JARINGAN DATA NASIONAL TERENKRIPSI
+        </span>
+      </div>
+
+      <div class="flow-svg-box">
+        <svg id="sitb-flow-svg" viewBox="0 0 950 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Flow Connection Paths (SVG Path curves) -->
+          <path id="path-faskes-hub" d="M140 70 C 270 70, 320 210, 475 210" stroke="rgba(201, 59, 93, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+          <path id="path-swasta-hub" d="M140 160 C 270 160, 320 210, 475 210" stroke="rgba(201, 59, 93, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+          <path id="path-lab-hub" d="M140 250 C 270 250, 320 210, 475 210" stroke="rgba(201, 59, 93, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+          <path id="path-kontak-hub" d="M140 340 C 270 340, 320 210, 475 210" stroke="rgba(201, 59, 93, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+
+          <path id="path-hub-analisis" d="M475 210 L 650 210" stroke="rgba(6, 182, 212, 0.5)" stroke-width="3"/>
+          <path id="path-analisis-dinkes" d="M650 210 C 730 210, 760 120, 830 120" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+          <path id="path-analisis-logistik" d="M650 210 C 730 210, 760 300, 830 300" stroke="rgba(224, 122, 95, 0.4)" stroke-width="2" stroke-dasharray="6 6"/>
+
+          <!-- Anime.js Flow Packets (Glowing traveling dots) -->
+          <circle id="packet-1" r="5" fill="#C93B5D" filter="drop-shadow(0 0 6px #C93B5D)"/>
+          <circle id="packet-2" r="5" fill="#E07A5F" filter="drop-shadow(0 0 6px #E07A5F)"/>
+          <circle id="packet-3" r="5" fill="#06B6D4" filter="drop-shadow(0 0 6px #06B6D4)"/>
+          <circle id="packet-4" r="5" fill="#F4A261" filter="drop-shadow(0 0 6px #F4A261)"/>
+          <circle id="packet-5" r="6" fill="#38BDF8" filter="drop-shadow(0 0 8px #38BDF8)"/>
+          <circle id="packet-6" r="5" fill="#10B981" filter="drop-shadow(0 0 6px #10B981)"/>
+          <circle id="packet-7" r="5" fill="#E07A5F" filter="drop-shadow(0 0 6px #E07A5F)"/>
+
+          <!-- INPUT NODES (LEFT) -->
+          <g id="node-puskesmas" class="flow-node">
+            <rect x="20" y="45" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#C93B5D" stroke-width="1.5"/>
+            <path d="M42 62 h16 v16 h-16 z M50 66 v8 M46 70 h8" stroke="#FFF" stroke-width="1.8" fill="none"/>
+            <text x="115" y="75" text-anchor="middle" font-size="12" fill="#FFF">Puskesmas (FKTP)</text>
+          </g>
+
+          <g id="node-swasta" class="flow-node">
+            <rect x="20" y="135" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#E07A5F" stroke-width="1.5"/>
+            <path d="M42 165 v-16 h16 v16 z M48 153 h4 M48 158 h4" stroke="#FFF" stroke-width="1.8" fill="none"/>
+            <text x="115" y="165" text-anchor="middle" font-size="12" fill="#FFF">Faskes Swasta & RS</text>
+          </g>
+
+          <g id="node-lab" class="flow-node">
+            <rect x="20" y="225" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#06B6D4" stroke-width="1.5"/>
+            <path d="M46 237 v6 l-6 10 a2 2 0 0 0 2 2 h14 a2 2 0 0 0 2 -2 l-6 -10 v-6 h-6" stroke="#FFF" stroke-width="1.8" fill="none"/>
+            <text x="115" y="255" text-anchor="middle" font-size="12" fill="#FFF">Lab TCM GeneXpert</text>
+          </g>
+
+          <g id="node-kontak" class="flow-node">
+            <rect x="20" y="315" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#F4A261" stroke-width="1.5"/>
+            <path d="M44 345 v-2 a3 3 0 0 1 3 -3 h4 a3 3 0 0 1 3 3 v2 M49 334 a2.5 2.5 0 1 0 0 -5 2.5 2.5 0 0 0 0 5 M56 345 v-1.5 a2.5 2.5 0 0 0 -2 -2.4 M53 331 a2 2 0 1 0 0 -4" stroke="#FFF" stroke-width="1.8" fill="none"/>
+            <text x="115" y="345" text-anchor="middle" font-size="12" fill="#FFF">Tim Tracing Kontak</text>
+          </g>
+
+          <!-- CENTRAL HUB (SITB SERVER) -->
+          <g id="node-sitb" class="flow-node">
+            <circle id="hub-pulse" cx="475" cy="210" r="48" fill="none" stroke="#C93B5D" stroke-width="2"/>
+            <circle cx="475" cy="210" r="44" fill="#3D0F1E" stroke="#C93B5D" stroke-width="2.5"/>
+            <text x="475" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF">SITB HUB</text>
+            <text x="475" y="224" text-anchor="middle" font-size="10" fill="#E07A5F">Kemenkes RI</text>
+          </g>
+
+          <!-- ANALYTICS ENGINE -->
+          <g id="node-analisis" class="flow-node">
+            <rect x="580" y="185" width="150" height="50" rx="10" fill="#3D0F1E" stroke="#06B6D4" stroke-width="1.5"/>
+            <circle cx="605" cy="210" r="6" stroke="#FFF" stroke-width="1.8" fill="none"/>
+            <path d="M605 201 v2 M605 217 v2 M596 210 h2 M612 210 h2" stroke="#FFF" stroke-width="1.8"/>
+            <text x="665" y="215" text-anchor="middle" font-size="12" fill="#FFF">Engine Analisis</text>
+          </g>
+
+          <!-- OUTPUT NODES (RIGHT) -->
+          <g id="node-dinkes" class="flow-node">
+            <rect x="750" y="95" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#10B981" stroke-width="1.5"/>
+            <path d="M772 127 v-8 M777 127 v-14 M782 127 v-5" stroke="#FFF" stroke-width="2"/>
+            <text x="840" y="125" text-anchor="middle" font-size="12" fill="#FFF">Dashboard Dinkes</text>
+          </g>
+
+          <g id="node-logistik" class="flow-node">
+            <rect x="750" y="275" width="170" height="50" rx="10" fill="#3D0F1E" stroke="#E07A5F" stroke-width="1.5"/>
+            <path d="M768 293 l8 -4 l8 4 v10 l-8 4 l-8 -4 z M776 289 v14 M768 293 l8 4 l8 -4" stroke="#FFF" stroke-width="1.6" fill="none"/>
+            <text x="840" y="305" text-anchor="middle" font-size="12" fill="#FFF">Alokasi Obat OAT</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Node Inspection Details Panel -->
+      <div class="flow-details-panel">
+        <div>
+          <h4 id="flow-info-title">01. Puskesmas & Faskes Tingkat Pertama (FKTP)</h4>
+          <p id="flow-info-desc">
+            Mencatat setiap terduga TB (Formulir TB.05 / e-TB), skrining batuk berdahak >2 minggu, pengambilan spesimen dahak pagi-sewaktu, serta pemantauan pengawas menelan obat (PMO).
+          </p>
+        </div>
+        <span class="tool-chip" style="flex-shrink: 0; margin-left: 16px; display: inline-flex; align-items: center; gap: 6px;">
+          <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Klik node untuk rincian SOP
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 05: Taksonomi Analisis Data TB -->
+  <section class="container" style="padding: 70px 0;" id="analisis">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 05 - INTELEJENSI DATA</span>
+      <h2 class="section-title">Jenis Analisis Data Tuberkulosis</h2>
+      <p class="section-subtitle">
+        Empat tingkatan analisis yang mengubah kumpulan data mentah menjadi wawasan mendalam dan tindakan pencegahan yang terarah.
+      </p>
+    </div>
+
+    <div class="analytics-grid">
+      <div class="glass-panel analytics-card">
+        <div>
+          <div class="analytics-step">LEVEL 01</div>
+          <h4>Analisis Deskriptif</h4>
+          <div class="analytics-question">"What happened?"</div>
+          <p>Menjawab pertanyaan apa yang terjadi dari data historis.</p>
+        </div>
+        <div class="analytics-example">
+          <b>Contoh:</b> Mengetahui jumlah kasus TB baru di kabupaten selama triwulan pertama.
+        </div>
+      </div>
+
+      <div class="glass-panel analytics-card">
+        <div>
+          <div class="analytics-step">LEVEL 02</div>
+          <h4>Analisis Diagnostik</h4>
+          <div class="analytics-question">"Why did it happen?"</div>
+          <p>Menjawab mengapa hal itu terjadi dengan mencari akar penyebab suatu kondisi.</p>
+        </div>
+        <div class="analytics-example">
+          <b>Contoh:</b> Mencari faktor penyebab naiknya angka putus berobat, seperti jarak ke faskes atau efek samping obat.
+        </div>
+      </div>
+
+      <div class="glass-panel analytics-card">
+        <div>
+          <div class="analytics-step">LEVEL 03</div>
+          <h4>Analisis Prediktif</h4>
+          <div class="analytics-question">"What might happen?"</div>
+          <p>Memperkirakan apa yang mungkin terjadi ke depan berdasarkan pola data historis.</p>
+        </div>
+        <div class="analytics-example">
+          <b>Contoh:</b> Memperkirakan kebutuhan obat anti-TB bulan depan dari tren kasus yang tercatat.
+        </div>
+      </div>
+
+      <div class="glass-panel analytics-card">
+        <div>
+          <div class="analytics-step">LEVEL 04</div>
+          <h4>Analisis Preskriptif</h4>
+          <div class="analytics-question">"What should be done?"</div>
+          <p>Merekomendasikan tindakan nyata yang harus diambil untuk menyelesaikan masalah.</p>
+        </div>
+        <div class="analytics-example">
+          <b>Contoh:</b> Menempatkan petugas pelacak kontak di wilayah dengan beban kasus tinggi.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 06 & 07: Aplikasi & Manfaat (Komparator Klinis TB-SO vs TB-RO) -->
+  <section class="container" style="padding: 70px 0;" id="komparator">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 06 &amp; 07 - APLIKASI, MANFAAT &amp; FARMAKOLOGI</span>
+      <h2 class="section-title">Aplikasi, Manfaat &amp; Komparator Klinis</h2>
+      <p class="section-subtitle">
+        SITB dipakai untuk <strong>surveilans penyakit</strong> (memantau tren dan mendeteksi lonjakan kasus lebih dini), <strong>perencanaan layanan</strong> (menentukan kebutuhan obat, alat tes, dan petugas), <strong>memantau pengobatan TB-SO dan TB-RO</strong>, serta <strong>melibatkan faskes swasta</strong> agar kasus yang ditangani mereka tidak terlewat. Salah satu aplikasi penting SITB adalah <strong>memperkirakan risiko</strong>, yaitu mengenali wilayah atau kelompok yang rentan terhadap TB dari pola data.
+      </p>
+    </div>
+
+    <!-- 4 Manfaat Utama Grid -->
+    <div class="grid-3" style="grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px;">
+      <div class="glass-panel feature-card" style="padding: 22px;">
+        <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--rose-accent);">1. Kualitas Keputusan</h4>
+        <p style="font-size: 0.88rem;">Keputusan program memakai data valid, bukan perkiraan.</p>
+      </div>
+      <div class="glass-panel feature-card" style="padding: 22px;">
+        <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--rose-accent);">2. Deteksi Dini</h4>
+        <p style="font-size: 0.88rem;">Kasus dan kontak berisiko ditemukan lebih awal.</p>
+      </div>
+      <div class="glass-panel feature-card" style="padding: 22px;">
+        <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--rose-accent);">3. Efisiensi Pelayanan</h4>
+        <p style="font-size: 0.88rem;">Obat dan tenaga dialokasikan sesuai kebutuhan nyata.</p>
+      </div>
+      <div class="glass-panel feature-card" style="padding: 22px;">
+        <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--rose-accent);">4. Pemantauan Berkala</h4>
+        <p style="font-size: 0.88rem;">Pasien dipantau terus sampai pengobatannya selesai.</p>
+      </div>
+    </div>
+
+    <!-- Komparator Dua Kolom Bersandingan Permanen (Tanpa Tombol Tab Filter) -->
+    <div class="glass-panel comparator-box">
+      <div class="comparator-grid">
+        <!-- Kolom TB-SO -->
+        <div class="comp-column" id="col-comp-so">
+          <span class="comp-badge so">TB SENSIFITIF OBAT (TB-SO)</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Tuberkulosis Sensitif Obat</h3>
+          <p>Bakteri M. tuberculosis masih peka terhadap seluruh lini pertama obat anti-tuberkulosis standar.</p>
+
+          <ul class="comp-list">
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+              </i>
+              <div>
+                <strong>Rejimen Pengobatan Standar:</strong><br>
+                Kategori 1: 2HRZE / 4HR (Isoniazid, Rifampisin, Pirazinamid, Etambutol). Tersedia dalam Fixed-Dose Combination (FDC).
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </i>
+              <div>
+                <strong>Durasi Terapi:</strong><br>
+                Minimal 6 bulan (2 bulan fase intensif setiap hari + 4 bulan fase lanjutan).
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              </i>
+              <div>
+                <strong>Tingkat Keberhasilan Pengobatan (TSR):</strong><br>
+                Mencapai 85–90% bila pasien patuh dan menelan obat di bawah pengawasan PMO.
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </i>
+              <div>
+                <strong>Tantangan Kunci:</strong><br>
+                Ketidakteraturan konsumsi dapat memicu mutasi bakteri menjadi TB-RO.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kolom TB-RO -->
+        <div class="comp-column tb-ro" id="col-comp-ro">
+          <span class="comp-badge ro">TB RESISTAN OBAT (TB-RO / MDR-TB)</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Tuberkulosis Resistan Obat</h3>
+          <p>Bakteri telah kebal terhadap minimal Rifampisin (TB-RR) atau Rifampisin dan Isoniazid sekaligus (TB-MDR).</p>
+
+          <ul class="comp-list">
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+              </i>
+              <div>
+                <strong>Rejimen Pengobatan Khusus:</strong><br>
+                Paduan Baru Lebih Pendek (BPaLM: Bedaquiline, Pretomanid, Linezolid, Moxifloxacin) atau paduan jangka panjang individu.
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </i>
+              <div>
+                <strong>Durasi Terapi:</strong><br>
+                6 bulan (paduan BPaLM) hingga 18–24 bulan (paduan konvensional) dengan monitoring EKG dan fungsi organ berkala.
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              </i>
+              <div>
+                <strong>Tingkat Keberhasilan Pengobatan:</strong><br>
+                Sekitar 55–70%, memerlukan komitmen psikososial tinggi dari pasien dan keluarga.
+              </div>
+            </li>
+            <li>
+              <i>
+                <svg class="svg-ic" width="20" height="20" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </i>
+              <div>
+                <strong>Tantangan Kunci:</strong><br>
+                Efek samping lebih berat (ototoksisitas, nefrotoksisitas, perpanjangan interval QT), biaya lebih tinggi.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 07: Galeri Foto Medis Asli -->
+  <section class="container" style="padding: 70px 0;" id="galeri-medis">
+    <div class="section-header">
+      <span class="section-pill">DOKUMENTASI KLINIS ASLI</span>
+      <h2 class="section-title">Galeri Fotografi &amp; Mikrograf Medis</h2>
+      <p class="section-subtitle">
+        Bukti visual autentik mikroskopis, radiologi, dan instrumen diagnostik penanggulangan TB di fasilitas kesehatan. Klik foto untuk melihat pembesaran dan penjelasan.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Card 1: BTA Smear -->
+      <div class="gallery-card">
+        <div class="gallery-thumb-wrapper">
+          <span class="gallery-overlay-badge">MIKROSKOPI BTA</span>
+          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" alt="Mikrograf Pewarnaan BTA Ziehl-Neelsen" class="gallery-thumb">
+        </div>
+        <div class="gallery-info">
+          <h4>Pewarnaan Ziehl-Neelsen</h4>
+          <p>Bakteri Mycobacterium tuberculosis tampak sebagai batang merah cerah berlatar belakang biru metilen.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Rontgen Thorax -->
+      <div class="gallery-card">
+        <div class="gallery-thumb-wrapper">
+          <span class="gallery-overlay-badge">RADIOLOGI</span>
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Foto Rontgen Thorax Tuberkulosis Paru" class="gallery-thumb">
+        </div>
+        <div class="gallery-info">
+          <h4>Rontgen Thorax Pasien TB</h4>
+          <p>Tampak infiltrat berawan dan kavitas berdinding tebal pada lapangan atas paru (segmen apikal).</p>
+        </div>
+      </div>
+
+      <!-- Card 3: GeneXpert TCM -->
+      <div class="gallery-card">
+        <div class="gallery-thumb-wrapper">
+          <span class="gallery-overlay-badge">DIAGNOSTIK TCM</span>
+          <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="Alat Tes Cepat Molekuler GeneXpert" class="gallery-thumb">
+        </div>
+        <div class="gallery-info">
+          <h4>Mesin TCM GeneXpert</h4>
+          <p>Sistem otomatis PCR real-time yang mengamplifikasi DNA kuman dan mendeteksi resistansi Rifampisin.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Obat OAT Blister -->
+      <div class="gallery-card">
+        <div class="gallery-thumb-wrapper">
+          <span class="gallery-overlay-badge">FARMAKOTERAPI</span>
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Rejimen Obat Anti Tuberkulosis OAT" class="gallery-thumb">
+        </div>
+        <div class="gallery-info">
+          <h4>Paket OAT Kategori 1 FDC</h4>
+          <p>Kombinasi dosis tetap (Fixed-Dose Combination) yang menjamin kepatuhan pasien sesuai berat badan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 08 & 09: Tata Kelola, Keamanan Data & Era AI -->
+  <section class="container" style="padding: 70px 0;">
+    <div class="section-header">
+      <span class="section-pill">BAGIAN 08 &amp; 09 - TANTANGAN, ETIKA &amp; MASA DEPAN</span>
+      <h2 class="section-title">Tantangan, Etika &amp; Masa Depan SITB</h2>
+      <p class="section-subtitle">
+        Ada empat tantangan utama dalam memakai SITB: <strong>privasi data</strong> (identitas dan status TB pasien wajib dirahasiakan dari pihak yang tidak berwenang), <strong>keamanan data</strong> (akun dan kata sandi harus dijaga, tidak dibagikan, dan petugas selalu keluar dari sistem setelah selesai), <strong>kualitas data</strong> (isian harus akurat, lengkap, dan konsisten agar laporan bisa dipercaya), serta <strong>integrasi data</strong> (format data dari puskesmas, rumah sakit, dan faskes swasta perlu diselaraskan).
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <svg class="svg-ic" width="28" height="28" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h3>Privasi &amp; Keamanan Data</h3>
+        <p>
+          Status diagnosis TB pasien adalah data medis rahasia. Akun dan password wajib dijaga, tidak boleh dibagi, dan petugas harus logout setiap selesai bertugas. Enkripsi SSL melindungi transmisi data.
+        </p>
+      </div>
+
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <svg class="svg-ic" width="28" height="28" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <h3>Kualitas &amp; Integrasi Data</h3>
+        <p>
+          Isian data wajib akurat, lengkap, dan konsisten agar laporan dapat dipercaya. Penyelarasan format data dengan platform SatuSehat memastikan rekam medis elektronik saling terhubung secara mulus.
+        </p>
+      </div>
+
+      <div class="glass-panel feature-card">
+        <div class="card-icon">
+          <svg class="svg-ic" width="28" height="28" viewBox="0 0 24 24">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <h3>AI, Cloud &amp; IoT Masa Depan</h3>
+        <p>
+          Kecerdasan buatan &amp; machine learning membantu mengenali pola kasus dan membuat model prediksi. Cloud computing memungkinkan penyimpanan berskala besar, aplikasi seluler mempermudah pencatatan, dan sensor Internet of Things (IoT) berfungsi sebagai pengingat minum obat pintar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Tim Peneliti & Pengembang Mahasiswa (Disematkan Langsung di Halaman Tanpa Teks Peran) -->
+  <section class="container" style="padding: 70px 0;" id="tim-peneliti">
+    <div class="section-header">
+      <span class="section-pill">TIM PENELITI &amp; PENGEMBANG MAHASISWA</span>
+      <h2 class="section-title">Penyusun Modul SITB Edu</h2>
+      <p class="section-subtitle">
+        Infografis edukatif ini disusun oleh Kelompok 2, 5, 8, dan 11 (sembilan mahasiswa peminatan Sistem Informasi Kesehatan &amp; Epidemiologi):
+      </p>
+    </div>
+
+    <div class="team-grid" id="embedded-team-grid">
+      <!-- 1. Afifah Zuhra -->
+      <div class="student-card">
+        <div class="student-avatar">AZ</div>
+        <div class="student-info">
+          <h4>Afifah Zuhra</h4>
+          <p>NIM 241000273</p>
+        </div>
+      </div>
+
+      <!-- 2. Sarah Azrinaz Dian -->
+      <div class="student-card">
+        <div class="student-avatar">SD</div>
+        <div class="student-info">
+          <h4>Sarah Azrinaz Dian</h4>
+          <p>NIM 241000283</p>
+        </div>
+      </div>
+
+      <!-- 3. Shania Aqiila Zahra -->
+      <div class="student-card">
+        <div class="student-avatar">SZ</div>
+        <div class="student-info">
+          <h4>Shania Aqiila Zahra</h4>
+          <p>NIM 241000290</p>
+        </div>
+      </div>
+
+      <!-- 4. Regita Cahyani Harahap -->
+      <div class="student-card">
+        <div class="student-avatar">RH</div>
+        <div class="student-info">
+          <h4>Regita Cahyani Harahap</h4>
+          <p>NIM 241000294</p>
+        </div>
+      </div>
+
+      <!-- 5. Siti Shahnaz -->
+      <div class="student-card">
+        <div class="student-avatar">SS</div>
+        <div class="student-info">
+          <h4>Siti Shahnaz</h4>
+          <p>NIM 241000296</p>
+        </div>
+      </div>
+
+      <!-- 6. Catherin Vinensky Br Surbakti -->
+      <div class="student-card">
+        <div class="student-avatar">CS</div>
+        <div class="student-info">
+          <h4>Catherin Vinensky Br Surbakti</h4>
+          <p>NIM 241000301</p>
+        </div>
+      </div>
+
+      <!-- 7. Bulan Margolang -->
+      <div class="student-card">
+        <div class="student-avatar">BM</div>
+        <div class="student-info">
+          <h4>Bulan Margolang</h4>
+          <p>NIM 241000320</p>
+        </div>
+      </div>
+
+      <!-- 8. Sabila Paramesywari Anwar -->
+      <div class="student-card">
+        <div class="student-avatar">SA</div>
+        <div class="student-info">
+          <h4>Sabila Paramesywari Anwar</h4>
+          <p>NIM 241000336</p>
+        </div>
+      </div>
+
+      <!-- 9. Yesion Stefani Hutabarat -->
+      <div class="student-card">
+        <div class="student-avatar">YH</div>
+        <div class="student-info">
+          <h4>Yesion Stefani Hutabarat</h4>
+          <p>NIM 241000353</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian 10: Uji Pemahaman Gamifikasi & Sertifikat Digital (Judul Lebar 1 Baris) -->
+  <section class="container" style="padding: 70px 0 100px;" id="kuis">
+    <div class="section-header section-header-wide">
+      <span class="section-pill">BAGIAN 10 - KAMPANYE LITERASI SIK &amp; EVALUASI</span>
+      <h2 class="section-title">Uji Pemahaman &amp; Sertifikat Literasi SITB</h2>
+      <p class="section-subtitle">
+        Pesan utama kampanye ini adalah <strong>"Satu kasus TB, satu catatan digital."</strong> Ajakannya: catat hari ini, lacak kontak minggu ini, dan pantau pasien sampai pengobatan selesai. Data yang rapi menyelamatkan pasien berikutnya. Jawab 5 pertanyaan evaluasi di bawah ini untuk menguji pemahaman Anda dan dapatkan Sertifikat Digital Resmi "Duta Literasi SITB".
+      </p>
+    </div>
+
+    <div class="glass-panel quiz-wrapper">
+      <div class="quiz-header">
+        <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--rose-accent);" id="quiz-step-text">
+          Soal 1 dari 5
+        </span>
+        <span class="tool-chip" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Mode Evaluasi Interaktif
+        </span>
+      </div>
+
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+
+      <!-- Interactive Question Render Target -->
+      <div id="quiz-box"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="nav-brand" style="margin-bottom: 14px;">
+            <div class="brand-emblem" style="width: 36px; height: 36px;">
+              <img src="assets/accountlogo.png" alt="Logo Kemenkes RI" style="width: 24px; height: 24px; object-fit: contain;">
+            </div>
+            <div class="brand-text">
+              <h2 style="font-size: 1.1rem;">SITB<span>Edu</span></h2>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6; max-width: 440px;">
+            Platform edukatif literasi Sistem Informasi Kesehatan (SIK) khusus Program Tuberkulosis Nasional. Dikembangkan untuk mendukung eliminasi TBC di Indonesia tahun 2030.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 14px;">Navigasi Modul</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li><a href="#three-viewer">Lab Medis 3D</a></li>
+            <li><a href="#konsep">Konsep Dasar SIK</a></li>
+            <li><a href="#alur-data">Diagram Alur Data</a></li>
+            <li><a href="#komparator">TB-SO vs TB-RO</a></li>
+            <li><a href="#galeri-medis">Galeri Foto Klinis</a></li>
+            <li><a href="#tim-peneliti">Tim Peneliti</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 14px;">Tim Mahasiswa</h4>
+          <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 12px;">
+            Disusun secara kolaboratif oleh Kelompok 2, 5, 8, dan 11 (9 mahasiswa peminatan SIK &amp; Epidemiologi).
+          </p>
+          <a href="#tim-peneliti" class="btn-secondary" style="padding: 8px 16px; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
+            <svg class="svg-ic" width="14" height="14" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            Lihat Nama &amp; NIM
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          Materi edukasi ini merujuk pada Pedoman Nasional Pelayanan Kedokteran Tata Laksana Tuberkulosis dan Petunjuk Teknis SITB Kementerian Kesehatan Republik Indonesia.
+        </p>
+        <p style="margin-top: 6px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-faint);">
+          © 2026 SITB Edu - Tim Pengembang Mahasiswa FKM. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Medical Photos -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="modal-close-btn" id="close-lightbox" style="position: absolute; top: 20px; right: 20px; z-index: 1060;" aria-label="Tutup">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- CDN Dependencies -->
+  <!-- 1. Three.js r128 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- 2. OrbitControls for Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- 3. Anime.js for SVG animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Modular Application Scripts -->
+  <script src="assets/js/three-scene.js"></script>
+  <script src="assets/js/anime-flow.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
