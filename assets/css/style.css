@@ -899,15 +899,26 @@ margin-top: 4px;
   gap: 8px;
 }
 
-.flow-details-panel .flow-badge-top {
+.flow-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
   margin-bottom: 2px;
 }
 
-.flow-details-panel h4 {
+.flow-details-header h4 {
   color: var(--rose-accent);
   font-size: 1.05rem;
   line-height: 1.4;
-  width: 100%;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.flow-details-header .flow-badge-top {
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .flow-details-panel p {
@@ -1913,7 +1924,14 @@ footer.site-footer {
     gap: 6px;
   }
 
-  .flow-details-panel h4 {
+  .flow-details-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .flow-details-header h4 {
     font-size: 0.98rem;
   }
 
